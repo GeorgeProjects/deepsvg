@@ -331,7 +331,7 @@ class SVG:
         return self
 
     def canonicalize(self, normalize=False):
-        self.to_path().simplify_arcs()
+        # self.to_path().simplify_arcs()
 
         if normalize:
             self.normalize()
