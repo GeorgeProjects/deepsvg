@@ -16,8 +16,8 @@ def preprocess_svg(svg_file, output_folder, meta_data):
     svg.fill_(False)
     svg.normalize()
     svg.zoom(0.9)
-    # svg.canonicalize()
-    # svg = svg.simplify_heuristic()
+    svg.canonicalize()
+    svg = svg.simplify_heuristic()
 
     svg.save_svg(os.path.join(output_folder, f"{filename}.svg"))
 
