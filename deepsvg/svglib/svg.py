@@ -290,7 +290,7 @@ class SVG:
 
     def normalize(self, viewbox: Bbox = None):
         if viewbox is None:
-            viewbox = Bbox(24)
+            viewbox = Bbox(500)
 
         size = self.viewbox.size
         scale_factor = viewbox.size.min() / size.max()
