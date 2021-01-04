@@ -326,12 +326,12 @@ class SVG:
         self._apply_to_paths("canonicalize")
         self.recompute_origins()
 
-        self.drop_z()
+        # self.drop_z()
 
         return self
 
     def canonicalize(self, normalize=False):
-        # self.to_path().simplify_arcs()
+        self.to_path().simplify_arcs()
 
         if normalize:
             self.normalize()
@@ -344,7 +344,7 @@ class SVG:
         self._apply_to_paths("canonicalize")
         self.recompute_origins()
 
-        self.drop_z()
+        # self.drop_z()
 
         return self
 
