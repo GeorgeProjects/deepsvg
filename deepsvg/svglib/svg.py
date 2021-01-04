@@ -331,12 +331,12 @@ class SVG:
         return self
 
     def canonicalize(self, normalize=False):
-        self.to_path().simplify_arcs()
+        # self.to_path().simplify_arcs()
 
         if normalize:
             self.normalize()
 
-        self.split_paths()
+        # self.split_paths()
         self.filter_consecutives()
         self.filter_empty()
         self._apply_to_paths("reorder")
