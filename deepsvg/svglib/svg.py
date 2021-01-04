@@ -336,7 +336,7 @@ class SVG:
         if normalize:
             self.normalize()
 
-        self.split_paths()
+        # self.split_paths()
         self.filter_consecutives()
         self.filter_empty()
         self._apply_to_paths("reorder")
