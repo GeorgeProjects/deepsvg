@@ -336,9 +336,9 @@ class SVG:
         if normalize:
             self.normalize()
 
-        # self.split_paths()
-        # self.filter_consecutives()
-        # self.filter_empty()
+        self.split_paths()
+        self.filter_consecutives()
+        self.filter_empty()
         self._apply_to_paths("reorder")
         # self.svg_path_groups = sorted(self.svg_path_groups, key=lambda x: x.start_pos.tolist()[::-1])
         self._apply_to_paths("canonicalize")
