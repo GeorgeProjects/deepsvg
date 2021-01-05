@@ -20,7 +20,8 @@ def train(cfg: _Config, model_name, experiment_name="", log_dir="./logs", debug=
 
     print("Parameters")
     cfg.print_params()
-
+    print('cfg.batch_size', cfg.batch_size)
+    
     print("Loading dataset")
     dataset_load_function = importlib.import_module(cfg.dataloader_module).load_dataset
     dataset = dataset_load_function(cfg)
