@@ -157,6 +157,7 @@ class SVGTensorDataset(torch.utils.data.Dataset):
             idx = idx % len(self.df)
             id = self.idx_to_id(idx)
 
+        print('svg', svg)
         if svg is None:
             tensors, fillings = self._load_tensor(id)
             t_sep = random.choice(tensors) if random_aug else tensors[0]
