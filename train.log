@@ -1,0 +1,65 @@
+nohup: ignoring input
+Parameters
+  batch_size = 120
+  ckpt_every = 1000
+  collate_fn = None
+  data_dir = ./dataset/svgs_tensor_processed/
+  dataloader_module = deepsvg.svgtensor_dataset
+  filter_category = None
+  filter_labels = None
+  filter_platform = None
+  filter_uni = None
+  grad_clip = 1.0
+  learning_rate = 0.002
+  loader_num_workers = 8
+  log_every = 20
+  max_num_groups = 8
+  max_seq_len = 30
+  max_total_len = 50
+  meta_filepath = ./dataset/svgs_meta_processed.csv
+  model_args = ['commands', 'args', 'commands', 'args']
+  model_cfg = <configs.deepsvg.hierarchical_ordered.ModelConfig object at 0x7fc38a488350>
+  nb_augmentations = 1
+  num_epochs = 50
+  num_gpus = 2
+  num_steps = None
+  optimizer_starts = [0]
+  pretrained_path = None
+  stats_to_print = {'train': ['lr', 'time']}
+  train_ratio = 1.0
+  val_every = 2000
+  warmup_steps = 500
+Loading dataset
+968
+#Parameters: 10,304,596
+Traceback (most recent call last):
+  File "/home/guozheng.li/miniconda2/envs/deepsvg/lib/python3.7/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/home/guozheng.li/miniconda2/envs/deepsvg/lib/python3.7/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/data/guozheng.li/deepsvg/deepsvg/train.py", line 151, in <module>
+    train(cfg, model_name, experiment_name, log_dir=args.log_dir, debug=args.debug, resume=args.resume)
+  File "/data/guozheng.li/deepsvg/deepsvg/train.py", line 70, in train
+    data = next(iter(single_foward_dataloader))
+  File "/home/guozheng.li/miniconda2/envs/deepsvg/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 345, in __next__
+    data = self._next_data()
+  File "/home/guozheng.li/miniconda2/envs/deepsvg/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 856, in _next_data
+    return self._process_data(data)
+  File "/home/guozheng.li/miniconda2/envs/deepsvg/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 881, in _process_data
+    data.reraise()
+  File "/home/guozheng.li/miniconda2/envs/deepsvg/lib/python3.7/site-packages/torch/_utils.py", line 394, in reraise
+    raise self.exc_type(msg)
+RuntimeError: Caught RuntimeError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/guozheng.li/miniconda2/envs/deepsvg/lib/python3.7/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/home/guozheng.li/miniconda2/envs/deepsvg/lib/python3.7/site-packages/torch/utils/data/_utils/fetch.py", line 47, in fetch
+    return self.collate_fn(data)
+  File "/home/guozheng.li/miniconda2/envs/deepsvg/lib/python3.7/site-packages/torch/utils/data/_utils/collate.py", line 74, in default_collate
+    return {key: default_collate([d[key] for d in batch]) for key in elem}
+  File "/home/guozheng.li/miniconda2/envs/deepsvg/lib/python3.7/site-packages/torch/utils/data/_utils/collate.py", line 74, in <dictcomp>
+    return {key: default_collate([d[key] for d in batch]) for key in elem}
+  File "/home/guozheng.li/miniconda2/envs/deepsvg/lib/python3.7/site-packages/torch/utils/data/_utils/collate.py", line 55, in default_collate
+    return torch.stack(batch, 0, out=out)
+RuntimeError: invalid argument 0: Sizes of tensors must match except in dimension 0. Got 93 and 46 in dimension 1 at /pytorch/aten/src/TH/generic/THTensor.cpp:612
+
