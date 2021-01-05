@@ -1,0 +1,41 @@
+  0%|          | 0/1003 [00:00<?, ?it/s]  0%|          | 1/1003 [00:03<57:02,  3.42s/it]  0%|          | 2/1003 [00:05<49:10,  2.95s/it]  0%|          | 3/1003 [00:15<1:23:59,  5.04s/it]  0%|          | 4/1003 [00:17<1:11:57,  4.32s/it]  0%|          | 5/1003 [00:19<57:07,  3.43s/it]    1%|          | 6/1003 [00:20<46:40,  2.81s/it]  1%|          | 7/1003 [00:23<46:57,  2.83s/it]  1%|          | 8/1003 [00:24<39:35,  2.39s/it]  1%|          | 9/1003 [00:33<1:10:20,  4.25s/it]  1%|          | 10/1003 [00:34<53:07,  3.21s/it]   1%|          | 11/1003 [00:37<55:02,  3.33s/it]  1%|          | 12/1003 [00:46<1:21:04,  4.91s/it]  1%|▏         | 13/1003 [00:50<1:19:34,  4.82s/it]  1%|▏         | 14/1003 [00:55<1:15:52,  4.60s/it]  1%|▏         | 15/1003 [01:09<2:02:34,  7.44s/it]  2%|▏         | 16/1003 [01:10<1:30:00,  5.47s/it]  2%|▏         | 17/1003 [01:12<1:15:37,  4.60s/it]  2%|▏         | 18/1003 [01:13<56:29,  3.44s/it]    2%|▏         | 19/1003 [01:15<51:42,  3.15s/it]  2%|▏         | 20/1003 [01:24<1:20:40,  4.92s/it]  2%|▏         | 21/1003 [01:27<1:07:09,  4.10s/it]  2%|▏         | 22/1003 [01:30<1:01:36,  3.77s/it]  2%|▏         | 23/1003 [01:32<57:28,  3.52s/it]    2%|▏         | 24/1003 [01:35<52:08,  3.20s/it]  2%|▏         | 25/1003 [01:36<41:54,  2.57s/it]  3%|▎         | 26/1003 [01:38<38:40,  2.38s/it]  3%|▎         | 27/1003 [01:42<44:58,  2.76s/it]  3%|▎         | 28/1003 [01:46<54:54,  3.38s/it]  3%|▎         | 29/1003 [01:47<40:51,  2.52s/it]  3%|▎         | 30/1003 [01:51<49:08,  3.03s/it]  3%|▎         | 31/1003 [01:56<1:00:08,  3.71s/it]  3%|▎         | 32/1003 [02:12<1:59:47,  7.40s/it]  3%|▎         | 33/1003 [02:24<2:17:20,  8.49s/it]  3%|▎         | 34/1003 [02:26<1:48:40,  6.73s/it]  3%|▎         | 35/1003 [02:32<1:44:59,  6.51s/it]  4%|▎         | 36/1003 [02:34<1:24:35,  5.25s/it]  4%|▍         | 38/1003 [02:50<1:36:03,  5.97s/it]  4%|▍         | 40/1003 [02:54<1:16:32,  4.77s/it]  4%|▍         | 42/1003 [02:56<59:06,  3.69s/it]    4%|▍         | 43/1003 [03:04<1:18:29,  4.91s/it]  4%|▍         | 44/1003 [03:06<1:04:09,  4.01s/it]  4%|▍         | 45/1003 [03:06<47:02,  2.95s/it]    5%|▍         | 46/1003 [03:10<49:51,  3.13s/it]  5%|▍         | 47/1003 [03:13<51:42,  3.25s/it]  5%|▍         | 48/1003 [03:14<38:20,  2.41s/it]  5%|▍         | 49/1003 [03:15<34:03,  2.14s/it]  5%|▍         | 50/1003 [03:17<32:30,  2.05s/it]  5%|▍         | 50/1003 [03:22<1:04:10,  4.04s/it]
+Traceback (most recent call last):
+  File "/data/guozheng.li/deepsvg/dataset/preprocess.py", line 44, in main
+    for _ in futures.as_completed(preprocess_requests):
+  File "/home/guozheng.li/miniconda2/envs/deepsvg/lib/python3.7/concurrent/futures/_base.py", line 240, in as_completed
+    waiter.event.wait(wait_timeout)
+  File "/home/guozheng.li/miniconda2/envs/deepsvg/lib/python3.7/threading.py", line 552, in wait
+    signaled = self._cond.wait(timeout)
+  File "/home/guozheng.li/miniconda2/envs/deepsvg/lib/python3.7/threading.py", line 296, in wait
+    waiter.acquire()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/guozheng.li/miniconda2/envs/deepsvg/lib/python3.7/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/home/guozheng.li/miniconda2/envs/deepsvg/lib/python3.7/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/data/guozheng.li/deepsvg/dataset/preprocess.py", line 66, in <module>
+    main(args)
+  File "/data/guozheng.li/deepsvg/dataset/preprocess.py", line 45, in main
+    pbar.update(1)
+  File "/home/guozheng.li/miniconda2/envs/deepsvg/lib/python3.7/concurrent/futures/_base.py", line 623, in __exit__
+    self.shutdown(wait=True)
+  File "/home/guozheng.li/miniconda2/envs/deepsvg/lib/python3.7/concurrent/futures/thread.py", line 216, in shutdown
+    t.join()
+  File "/home/guozheng.li/miniconda2/envs/deepsvg/lib/python3.7/threading.py", line 1044, in join
+    self._wait_for_tstate_lock()
+  File "/home/guozheng.li/miniconda2/envs/deepsvg/lib/python3.7/threading.py", line 1060, in _wait_for_tstate_lock
+    elif lock.acquire(block, timeout):
+KeyboardInterrupt
+Error in atexit._run_exitfuncs:
+Traceback (most recent call last):
+  File "/home/guozheng.li/miniconda2/envs/deepsvg/lib/python3.7/concurrent/futures/thread.py", line 40, in _python_exit
+    t.join()
+  File "/home/guozheng.li/miniconda2/envs/deepsvg/lib/python3.7/threading.py", line 1044, in join
+    self._wait_for_tstate_lock()
+  File "/home/guozheng.li/miniconda2/envs/deepsvg/lib/python3.7/threading.py", line 1060, in _wait_for_tstate_lock
+    elif lock.acquire(block, timeout):
+KeyboardInterrupt
