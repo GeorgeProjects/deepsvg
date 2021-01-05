@@ -27,6 +27,7 @@ class SVGTensorDataset(torch.utils.data.Dataset):
             self.MAX_TOTAL_LEN = max_num_groups * max_seq_len
 
         if df is None:
+            print('meta_filepath', meta_filepath)
             df = pd.read_csv(meta_filepath)
 
         if len(df) > 0:
