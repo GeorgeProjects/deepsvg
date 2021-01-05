@@ -18,7 +18,6 @@ class SVGTensorDataset(torch.utils.data.Dataset):
     def __init__(self, data_dir, meta_filepath, model_args, max_num_groups, max_seq_len, max_total_len=None,
                  filter_uni=None, filter_platform=None, filter_category=None, train_ratio=1.0, df=None, PAD_VAL=-1):
         
-        print('max_num_groups', max_num_groups, 'max_seq_len', max_seq_len, 'max_total_len', max_total_len)
         self.data_dir = data_dir
 
         self.MAX_NUM_GROUPS = max_num_groups
@@ -157,11 +156,8 @@ class SVGTensorDataset(torch.utils.data.Dataset):
             idx = idx % len(self.df)
             id = self.idx_to_id(idx)
 
-        print('svg', svg)
         if svg is None:
-            print('id', id)
             tensors, fillings = self._load_tensor(id)
-            print('tensors', tensors, 'fillings', fillings)
             t_sep = random.choice(tensors) if random_aug else tensors[0]
         else:
             t_sep, fillings = svg.to_tensor(concat_groups=False, PAD_VAL=self.PAD_VAL), svg.to_fillings()
