@@ -213,6 +213,7 @@ class SVGPath:
 
     def filter_consecutives(self):
         path_commands = []
+        print('filter consecutives')
         for command in self.path_commands:
             if not command.start_pos.isclose(command.end_pos):
                 path_commands.append(command)
@@ -278,6 +279,7 @@ class SVGPath:
         return self
 
     def simplify_arcs(self):
+        print('simplify_arcs')
         path_commands = []
         for command in self.path_commands:
             if isinstance(command, SVGCommandArc):
@@ -384,11 +386,13 @@ class SVGPath:
         return self
 
     def simplify_heuristic(self):
+        print('simplify_heuristic')
         return self.copy().split(max_dist=2, include_lines=False) \
             .simplify(tolerance=0.1, epsilon=0.2, angle_threshold=150) \
             .split(max_dist=7.5)
 
     def simplify(self, tolerance=0.1, epsilon=0.1, angle_threshold=179., force_smooth=False):
+        print('simplify')
         # https://github.com/paperjs/paper.js/blob/c044b698c6b224c10a7747664b2a4cd00a416a25/src/path/PathFitter.js#L44
         points = [self.start_pos, *(path_command.end_pos for path_command in self.path_commands)]
 
