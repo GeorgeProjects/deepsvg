@@ -31,6 +31,8 @@ class SVGTensorDataset(torch.utils.data.Dataset):
             print(len(df))
 
         print('filter_uni', filter_uni, 'filter_platform', filter_platform, 'filter_category', filter_category, 'max_total_len', max_total_len)
+        print('max_num_groups', max_num_groups, 'max_seq_len', max_seq_len)
+        
         if len(df) > 0:
             if filter_uni is not None:
                 df = df[df.uni.isin(filter_uni)]
