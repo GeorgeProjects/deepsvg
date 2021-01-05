@@ -99,6 +99,7 @@ class SVGTensorDataset(torch.utils.data.Dataset):
 
     def idx_to_id(self, idx):
         print('idx', idx)
+        print('iloc', self.df.iloc)
         return self.df.iloc[idx].id
 
     def entry_from_id(self, id):
