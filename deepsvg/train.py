@@ -132,6 +132,7 @@ def train(cfg: _Config, model_name, experiment_name="", log_dir="./logs", debug=
                 timer.reset()
 
             if not debug and step % cfg.ckpt_every == 0 and step > 0:
+                print('save model')
                 utils.save_ckpt_list(checkpoint_dir, model, cfg, optimizers, scheduler_lrs, scheduler_warmups, stats, train_vars)
 
 
