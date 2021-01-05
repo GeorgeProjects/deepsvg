@@ -8,12 +8,12 @@ class _Config:
     """
     def __init__(self, num_gpus=1):
 
-        self.num_gpus = num_gpus                              #
+        self.num_gpus = num_gpus                                 #
 
-        self.dataloader_module = "deepsvg.svgtensor_dataset"  #
-        self.collate_fn = None                                #
-        self.data_dir = "./dataset/svgs_tensor_processed/"             #
-        self.meta_filepath = "./dataset/svgs_meta_processed.csv"       #
+        self.dataloader_module = "deepsvg.svgtensor_dataset"     #
+        self.collate_fn = None                                   #
+        self.data_dir = "./dataset/icon_tensor/"                 #  "./dataset/svgs_tensor_processed/"
+        self.meta_filepath = "./dataset/icons_meta.csv"          #  "./dataset/svgs_meta_processed.csv"
         self.loader_num_workers = 0                           #
 
         self.pretrained_path = None                           #
