@@ -27,9 +27,10 @@ class SVGTensorDataset(torch.utils.data.Dataset):
             self.MAX_TOTAL_LEN = max_num_groups * max_seq_len
 
         if df is None:
-            print('meta_filepath', meta_filepath)
             df = pd.read_csv(meta_filepath)
+            print(len(df))
 
+        print('filter_uni', filter_uni, 'filter_platform', filter_platform, 'filter_category', filter_category, 'max_total_len', max_total_len)
         if len(df) > 0:
             if filter_uni is not None:
                 df = df[df.uni.isin(filter_uni)]
@@ -43,6 +44,7 @@ class SVGTensorDataset(torch.utils.data.Dataset):
             df = df[(df.nb_groups <= max_num_groups) & (df.max_len_group <= max_seq_len)]
             if max_total_len is not None:
                 df = df[df.total_len <= max_total_len]
+        print('filtered', len(df))
 
         self.df = df.sample(frac=train_ratio) if train_ratio < 1.0 else df
 
