@@ -23,7 +23,7 @@ class _Config:
         self.num_epochs = None                                #
         self.num_steps = None                                 #
         self.learning_rate = 1e-3                             #
-        self.batch_size = 100                                 #
+        self.batch_size = 10                                 #
         self.warmup_steps = 500                               #
 
 
