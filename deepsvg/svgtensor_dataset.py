@@ -49,7 +49,6 @@ class SVGTensorDataset(torch.utils.data.Dataset):
 
         self.PAD_VAL = PAD_VAL
 
-        print(self.idx_to_id[:])
         self.nb_augmentations = len(self._load_tensor(self.idx_to_id(0))[0])
 
     def search_name(self, name):
@@ -100,7 +99,7 @@ class SVGTensorDataset(torch.utils.data.Dataset):
 
     def idx_to_id(self, idx):
         print('idx', idx)
-        print('iloc', self.df.iloc)
+        print('iloc', self.df.iloc[:])
         return self.df.iloc[idx].id
 
     def entry_from_id(self, id):
