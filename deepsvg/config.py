@@ -12,7 +12,7 @@ class _Config:
 
         self.dataloader_module = "deepsvg.svgtensor_dataset"     #
         self.collate_fn = None                                   #
-        self.data_dir = "./dataset/icon_tensor/"                 #  "./dataset/svgs_tensor_processed/"
+        self.data_dir = "./dataset/icons_tensor/"                 #  "./dataset/svgs_tensor_processed/"
         self.meta_filepath = "./dataset/icons_meta.csv"          #  "./dataset/svgs_meta_processed.csv"
         self.loader_num_workers = 0                           #
 
