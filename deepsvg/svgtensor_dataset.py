@@ -104,8 +104,6 @@ class SVGTensorDataset(torch.utils.data.Dataset):
         return None
 
     def idx_to_id(self, idx):
-        print('idx', idx)
-        print('iloc', self.df.iloc[:])
         return self.df.iloc[idx].id
 
     def entry_from_id(self, id):
@@ -114,6 +112,8 @@ class SVGTensorDataset(torch.utils.data.Dataset):
     def _load_tensor(self, icon_id):
         with open(os.path.join(self.data_dir, f"{icon_id}.pkl"), "rb") as f:
             data = pickle.load(f)
+        print('data_dir', self.data_dir, 'icon_id', icon_id)
+        print('data', data, data["tensors"])
         return data["tensors"], data["fillings"]
 
     def __len__(self):
