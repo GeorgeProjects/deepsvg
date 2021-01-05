@@ -17,6 +17,8 @@ Num = Union[int, float]
 class SVGTensorDataset(torch.utils.data.Dataset):
     def __init__(self, data_dir, meta_filepath, model_args, max_num_groups, max_seq_len, max_total_len=None,
                  filter_uni=None, filter_platform=None, filter_category=None, train_ratio=1.0, df=None, PAD_VAL=-1):
+        
+        print('max_num_groups', max_num_groups, 'max_seq_len', max_seq_len, 'max_total_len', max_total_len)
         self.data_dir = data_dir
 
         self.MAX_NUM_GROUPS = max_num_groups
@@ -31,8 +33,7 @@ class SVGTensorDataset(torch.utils.data.Dataset):
             print(len(df))
 
         print('filter_uni', filter_uni, 'filter_platform', filter_platform, 'filter_category', filter_category, 'max_total_len', max_total_len)
-        print('max_num_groups', max_num_groups, 'max_seq_len', max_seq_len)
-        
+
         if len(df) > 0:
             if filter_uni is not None:
                 df = df[df.uni.isin(filter_uni)]
