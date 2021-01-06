@@ -27,7 +27,7 @@ class PositionalEncodingLUT(nn.Module):
         super(PositionalEncodingLUT, self).__init__()
         self.dropout = nn.Dropout(p=dropout)
 
-        print('positional_encoding 30 max_len', max_len)
+        # print('positional_encoding 30 max_len', max_len)
         position = torch.arange(0, max_len, dtype=torch.long).unsqueeze(1)
         self.register_buffer('position', position)
 
@@ -39,9 +39,9 @@ class PositionalEncodingLUT(nn.Module):
         nn.init.kaiming_normal_(self.pos_embed.weight, mode="fan_in")
 
     def forward(self, x):
-        print('self.position', self.position, 'x.size(0)', x.size(0))
+        # print('self.position', self.position, 'x.size(0)', x.size(0))
         pos = self.position[:x.size(0)]
-        print('x', len(x), 'self.pos_embed(pos)', len(self.pos_embed(pos)))
+        # print('x', len(x), 'self.pos_embed(pos)', len(self.pos_embed(pos)))
         x = x + self.pos_embed(pos)
 
         return self.dropout(x)
