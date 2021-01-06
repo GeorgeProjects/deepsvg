@@ -236,7 +236,7 @@ class SVGFinetuneDataset(torch.utils.data.Dataset):
 
 
 def load_dataset(cfg: _Config):
-    cfg.max_num_groups = 100
+    cfg.max_num_groups = 15
     print('cfg.max_num_groups', cfg.max_num_groups)
     dataset = SVGTensorDataset(cfg.data_dir, cfg.meta_filepath, cfg.model_args, cfg.max_num_groups, cfg.max_seq_len, cfg.max_total_len,
                                cfg.filter_uni, cfg.filter_platform, cfg.filter_category, cfg.train_ratio)
