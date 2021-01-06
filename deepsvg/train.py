@@ -87,9 +87,7 @@ def train(cfg: _Config, model_name, experiment_name="", log_dir="./logs", debug=
 
             model.train()
             model_args = [data[arg].to(device) for arg in cfg.model_args]
-
-            print('inner model_args', model_args)
-
+            
             labels = data["label"].to(device) if "label" in data else None
             params_dict, weights_dict = cfg.get_params(step, epoch), cfg.get_weights(step, epoch)
 
