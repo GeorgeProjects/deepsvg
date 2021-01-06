@@ -24,6 +24,8 @@ class SVGTensorDataset(torch.utils.data.Dataset):
         self.MAX_SEQ_LEN = max_seq_len
         self.MAX_TOTAL_LEN = max_total_len
 
+        print("max_num_groups", max_num_groups)
+        
         if max_total_len is None:
             self.MAX_TOTAL_LEN = max_num_groups * max_seq_len
 
