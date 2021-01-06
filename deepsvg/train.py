@@ -29,8 +29,7 @@ def train(cfg: _Config, model_name, experiment_name="", log_dir="./logs", debug=
     print('cfg.batch_size2', cfg.batch_size)
     dataset_load_function = importlib.import_module(cfg.dataloader_module).load_dataset
     dataset = dataset_load_function(cfg)
-    dataloader = DataLoader(dataset, batch_size=cfg.batch_size, shuffle=True, drop_last=True,
-                            num_workers=cfg.loader_num_workers, collate_fn=cfg.collate_fn)
+    dataloader = DataLoader(dataset, batch_size=cfg.batch_size, shuffle=True, drop_last=True, num_workers=cfg.loader_num_workers, collate_fn=cfg.collate_fn)
     model = cfg.make_model().to(device)
 
     if cfg.pretrained_path is not None:
@@ -92,7 +91,7 @@ def train(cfg: _Config, model_name, experiment_name="", log_dir="./logs", debug=
             model_args = [data[arg].to(device) for arg in cfg.model_args]
 
             print('inner model_args', model_args)
-            
+
             labels = data["label"].to(device) if "label" in data else None
             params_dict, weights_dict = cfg.get_params(step, epoch), cfg.get_weights(step, epoch)
 

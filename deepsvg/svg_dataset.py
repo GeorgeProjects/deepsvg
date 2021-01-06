@@ -216,6 +216,7 @@ class SVGDataset(torch.utils.data.Dataset):
 
 
 def load_dataset(cfg: _Config, already_preprocessed=True):
+    print('cfg.data_dir', cfg.data_dir, 'cfg.meta_filepath', cfg.meta_filepath)
     dataset = SVGDataset(cfg.data_dir, cfg.meta_filepath, cfg.model_args, cfg.max_num_groups, cfg.max_seq_len, cfg.max_total_len,
                          cfg.filter_uni, cfg.filter_platform, cfg.filter_category, cfg.train_ratio,
                          nb_augmentations=cfg.nb_augmentations, already_preprocessed=already_preprocessed)
