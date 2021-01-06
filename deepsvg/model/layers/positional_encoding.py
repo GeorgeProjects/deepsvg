@@ -27,10 +27,10 @@ class PositionalEncodingLUT(nn.Module):
         super(PositionalEncodingLUT, self).__init__()
         self.dropout = nn.Dropout(p=dropout)
 
+        print('max_len', max_len)
         position = torch.arange(0, max_len, dtype=torch.long).unsqueeze(1)
         self.register_buffer('position', position)
 
-        print('max_len', max_len)
         self.pos_embed = nn.Embedding(max_len, d_model)
 
         self._init_embeddings()

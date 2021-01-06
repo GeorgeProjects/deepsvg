@@ -96,6 +96,8 @@ class Encoder(nn.Module):
         self.cfg = cfg
 
         seq_len = cfg.max_seq_len if cfg.encode_stages == 2 else cfg.max_total_len
+
+        print('seq_len 100', seq_len)
         self.use_group = cfg.encode_stages == 1
         self.embedding = SVGEmbedding(cfg, seq_len, use_group=self.use_group)
 
@@ -216,6 +218,7 @@ class Decoder(nn.Module):
             self.hierarchical_fcn = HierarchFCN(cfg.d_model, cfg.dim_z)
 
         if cfg.pred_mode == "autoregressive":
+            print('cfg.max_total_len', cfg.max_total_len)
             self.embedding = SVGEmbedding(cfg, cfg.max_total_len, rel_args=cfg.rel_targets, use_group=True, group_len=cfg.max_total_len)
 
             square_subsequent_mask = _generate_square_subsequent_mask(self.cfg.max_total_len+1)
