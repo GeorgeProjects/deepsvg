@@ -17,10 +17,10 @@ class Config(Config):
         self.model_args = self.model_cfg.get_model_args()
 
         print('model_args', self.model_args)
-        
+
         self.filter_category = None
 
         self.learning_rate = 1e-3 * num_gpus
-        self.batch_size = 5 #60 * num_gpus
+        self.batch_size = 6 #60 * num_gpus
 
         self.val_every = 2000
