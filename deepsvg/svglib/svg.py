@@ -139,6 +139,7 @@ class SVG:
         return SVG(svg_path_groups, view_box)
 
     def to_tensor(self, concat_groups=False, PAD_VAL=-1):
+        print('concat_groups', concat_groups)
         group_tensors = [p.to_tensor(PAD_VAL=PAD_VAL) for p in self.svg_path_groups]
 
         if concat_groups:
