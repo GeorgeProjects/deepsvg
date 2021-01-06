@@ -32,6 +32,8 @@ class SVGDataset(torch.utils.data.Dataset):
         if df is None:
             df = pd.read_csv(meta_filepath)
 
+        print(len(df))
+        print('filter_platform', filter_platform, 'filter_category', filter_category, 'max_num_groups', max_num_groups, 'max_seq_len', max_seq_len)
         if len(df) > 0:
             if filter_uni is not None:
                 df = df[df.uni.isin(filter_uni)]
@@ -46,6 +48,7 @@ class SVGDataset(torch.utils.data.Dataset):
             if max_total_len is not None:
                 df = df[df.total_len <= max_total_len]
 
+        print(len(df))
         self.df = df.sample(frac=train_ratio) if train_ratio < 1.0 else df
 
         self.model_args = model_args
