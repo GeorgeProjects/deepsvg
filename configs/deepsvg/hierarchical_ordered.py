@@ -21,6 +21,6 @@ class Config(Config):
         self.filter_category = None
 
         self.learning_rate = 1e-3 * num_gpus
-        self.batch_size = 6 #60 * num_gpus
+        self.batch_size = 60 #60 * num_gpus
 
         self.val_every = 2000
