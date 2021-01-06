@@ -100,6 +100,8 @@ class Encoder(nn.Module):
         seq_len = cfg.max_seq_len if cfg.encode_stages == 2 else cfg.max_total_len
 
         self.use_group = cfg.encode_stages == 1
+
+        print('model.py 104 seq_len', seq_len)
         self.embedding = SVGEmbedding(cfg, seq_len, use_group=self.use_group)
 
         if cfg.label_condition:
