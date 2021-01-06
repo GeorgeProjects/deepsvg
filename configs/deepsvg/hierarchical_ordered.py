@@ -16,6 +16,8 @@ class Config(Config):
         self.model_cfg = ModelConfig()
         self.model_args = self.model_cfg.get_model_args()
 
+        print('model_args', self.model_args)
+        
         self.filter_category = None
 
         self.learning_rate = 1e-3 * num_gpus
