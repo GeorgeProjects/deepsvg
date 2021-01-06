@@ -31,7 +31,7 @@ class SVGTensorDataset(torch.utils.data.Dataset):
 
         if df is None:
             df = pd.read_csv(meta_filepath)
-            print(len(df))
+            print('len(df)', len(df))
 
         # print('filter_uni', filter_uni, 'filter_platform', filter_platform, 'filter_category', filter_category, 'max_total_len', max_total_len)
         print('before', len(df))

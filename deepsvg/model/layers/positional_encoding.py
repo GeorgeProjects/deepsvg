@@ -27,7 +27,7 @@ class PositionalEncodingLUT(nn.Module):
         super(PositionalEncodingLUT, self).__init__()
         self.dropout = nn.Dropout(p=dropout)
 
-        print('max_len', max_len)
+        print('positional_encoding 30 max_len', max_len)
         position = torch.arange(0, max_len, dtype=torch.long).unsqueeze(1)
         self.register_buffer('position', position)
 
