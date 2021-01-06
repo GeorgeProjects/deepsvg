@@ -38,6 +38,7 @@ class PositionalEncodingLUT(nn.Module):
         nn.init.kaiming_normal_(self.pos_embed.weight, mode="fan_in")
 
     def forward(self, x):
+        print('self.position', self.position, 'x.size(0)', x.size(0))
         pos = self.position[:x.size(0)]
         print('x', len(x), 'self.pos_embed(pos)', len(self.pos_embed(pos)))
         x = x + self.pos_embed(pos)
