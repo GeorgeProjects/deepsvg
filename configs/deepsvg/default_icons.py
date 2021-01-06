@@ -37,7 +37,7 @@ class Config(_Config):
 
         self.train_ratio = 1.0
 
-        self.max_num_groups = 8
+        self.max_num_groups = 50
         self.max_total_len = 50
 
         # Dataloader
