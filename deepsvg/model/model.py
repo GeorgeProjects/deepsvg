@@ -31,6 +31,7 @@ class SVGEmbedding(nn.Module):
                 group_len = cfg.max_num_groups
             self.group_embed = nn.Embedding(group_len+2, cfg.d_model)
 
+        print('max_len', seq_len+2)
         self.pos_encoding = PositionalEncodingLUT(cfg.d_model, max_len=seq_len+2)
 
         self._init_embeddings()
@@ -64,7 +65,8 @@ class ConstEmbedding(nn.Module):
         self.cfg = cfg
 
         self.seq_len = seq_len
-
+        
+        print('seq_len', seq_len)        
         self.PE = PositionalEncodingLUT(cfg.d_model, max_len=seq_len)
 
     def forward(self, z):
@@ -97,7 +99,6 @@ class Encoder(nn.Module):
 
         seq_len = cfg.max_seq_len if cfg.encode_stages == 2 else cfg.max_total_len
 
-        print('seq_len 100', seq_len)
         self.use_group = cfg.encode_stages == 1
         self.embedding = SVGEmbedding(cfg, seq_len, use_group=self.use_group)
 
@@ -112,6 +113,7 @@ class Encoder(nn.Module):
         else:  # "lstm"
             self.encoder = nn.LSTM(cfg.d_model, cfg.d_model // 2, dropout=cfg.dropout, bidirectional=True)
 
+        print('cfg.max_num_groups', cfg.max_num_groups)
         if cfg.encode_stages == 2:
             if not cfg.self_match:
                 self.hierarchical_PE = PositionalEncodingLUT(cfg.d_model, max_len=cfg.max_num_groups)
