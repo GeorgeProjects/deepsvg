@@ -45,7 +45,7 @@ class _Config:
 
         self.log_every = 20                                   #
         self.val_every = 1000                                 #
-        self.ckpt_every = 1000                                #
+        self.ckpt_every = 50                                # 1000
 
         self.stats_to_print = {
             "train": ["lr", "time"]
