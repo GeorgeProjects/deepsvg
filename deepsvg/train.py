@@ -19,6 +19,7 @@ def train(cfg: _Config, model_name, experiment_name="", log_dir="./logs", debug=
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
     cfg.batch_size = 5
+    cfg.max_num_groups = 15
     print('cfg.batch_size', cfg.batch_size)
 
     print("Parameters")
