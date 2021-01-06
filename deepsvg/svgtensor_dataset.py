@@ -25,7 +25,7 @@ class SVGTensorDataset(torch.utils.data.Dataset):
         self.MAX_TOTAL_LEN = max_total_len
 
         print("max_num_groups", max_num_groups)
-        
+
         if max_total_len is None:
             self.MAX_TOTAL_LEN = max_num_groups * max_seq_len
 
@@ -236,6 +236,7 @@ class SVGFinetuneDataset(torch.utils.data.Dataset):
 
 
 def load_dataset(cfg: _Config):
+    print('cfg.max_num_groups', cfg.max_num_groups)
     dataset = SVGTensorDataset(cfg.data_dir, cfg.meta_filepath, cfg.model_args, cfg.max_num_groups, cfg.max_seq_len, cfg.max_total_len,
                                cfg.filter_uni, cfg.filter_platform, cfg.filter_category, cfg.train_ratio)
     return dataset
