@@ -39,7 +39,7 @@ class PositionalEncodingLUT(nn.Module):
 
     def forward(self, x):
         pos = self.position[:x.size(0)]
-        print('x', x, 'self.pos_embed(pos)', self.pos_embed(pos))
+        print('x', len(x), 'self.pos_embed(pos)', len(self.pos_embed(pos)))
         x = x + self.pos_embed(pos)
 
         return self.dropout(x)
