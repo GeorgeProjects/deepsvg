@@ -87,7 +87,7 @@ def train(cfg: _Config, model_name, experiment_name="", log_dir="./logs", debug=
 
             model.train()
             model_args = [data[arg].to(device) for arg in cfg.model_args]
-            
+
             labels = data["label"].to(device) if "label" in data else None
             params_dict, weights_dict = cfg.get_params(step, epoch), cfg.get_weights(step, epoch)
 
@@ -134,6 +134,7 @@ def train(cfg: _Config, model_name, experiment_name="", log_dir="./logs", debug=
 
                 timer.reset()
 
+            print('step', step, 'cfg.ckpt_every', cfg.ckpt_every)
             if not debug and step % cfg.ckpt_every == 0 and step > 0:
                 print('save model')
                 utils.save_ckpt_list(checkpoint_dir, model, cfg, optimizers, scheduler_lrs, scheduler_warmups, stats, train_vars)
