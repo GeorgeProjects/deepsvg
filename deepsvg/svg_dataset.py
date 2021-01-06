@@ -44,7 +44,8 @@ class SVGDataset(torch.utils.data.Dataset):
             if filter_category is not None:
                 df = df[df.category.isin(filter_category)]
 
-            print(df[0])
+            for item in df:
+                print(item)
 
             df = df[(df.nb_groups <= max_num_groups) & (df.max_len_group <= max_seq_len)]
             if max_total_len is not None:
