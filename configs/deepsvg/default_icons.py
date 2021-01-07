@@ -39,8 +39,8 @@ class Config(_Config):
 
         # self.max_num_groups = 50
         # self.max_total_len = 500
-        self.max_num_groups = 50
-        self.max_total_len = 500
+        self.max_num_groups = 100
+        self.max_total_len = 1000
 
         # Dataloader
         self.loader_num_workers = 4 * num_gpus

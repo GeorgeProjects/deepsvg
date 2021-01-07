@@ -38,7 +38,7 @@ class _DefaultConfig:
 
         self.dim_z = 256                 # Latent vector dimensionality
 
-        self.max_num_groups = 50         # Number of paths (N_P)
+        self.max_num_groups = 100         # Number of paths (N_P)
         self.max_seq_len = 10            # Number of commands (N_C)
         self.max_total_len = self.max_num_groups * self.max_seq_len  # Concatenated sequence length for baselines
 
