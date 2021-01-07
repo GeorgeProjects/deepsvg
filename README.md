@@ -126,6 +126,25 @@ cfg.data_dir = "./dataset/svgs_simplified/"
 cfg.meta_filepath = "./dataset/svg_meta.csv"
 ```
 
+Setting the dataloader_module as 'deepsvg.svg_dataset' means that we use the code in /utils/svg_dataset.py to load the pure svg dataset.
+
+When we train the model, we need to set the parameters to filter the trainign data, especially for parameter ```max_num_groups``` and ```max_seq_len```, when means that how many paths in the svg and how long for each path.
+
+```python
+    if filter_uni is not None:
+        df = df[df.uni.isin(filter_uni)]
+
+    if filter_platform is not None:
+        df = df[df.platform.isin(filter_platform)]
+
+    if filter_category is not None:
+        df = df[df.category.isin(filter_category)]
+
+    df = df[(df.nb_groups <= max_num_groups) & (df.max_len_group <= max_seq_len)]
+    if max_total_len is not None:
+        df = df[df.total_len <= max_total_len]
+```
+
 ## Deep learning SVG library
 DeepSVG has been developed along with a library for deep learning with SVG data. The main features are:
 - Parsing of SVG files.
