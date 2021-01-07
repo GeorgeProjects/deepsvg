@@ -145,6 +145,11 @@ When we train the model, we need to set the parameters to filter the trainign da
         df = df[df.total_len <= max_total_len]
 ```
 
+For the parameter ```max_num_groups```, we need to change this parameter from files, 'deepsvg/default_icons.py', 'deepsvg/config.py', and 'model/config.py'.
+
+For the parameter ```max_seq_len```, we need to change it in 'deepsvg/config.py', and 'model/config.py'.
+
+
 ## Deep learning SVG library
 DeepSVG has been developed along with a library for deep learning with SVG data. The main features are:
 - Parsing of SVG files.
