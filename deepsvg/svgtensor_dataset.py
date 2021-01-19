@@ -57,7 +57,8 @@ class SVGTensorDataset(torch.utils.data.Dataset):
 
         self.PAD_VAL = PAD_VAL
 
-        self.nb_augmentations = len(self._load_tensor(self.idx_to_id(0))[0])
+        # self.nb_augmentations = len(self._load_tensor(self.idx_to_id(0))[0])
+        self.nb_augmentations = 1
 
     def search_name(self, name):
         return self.df[self.df.commonName.str.contains(name)]
