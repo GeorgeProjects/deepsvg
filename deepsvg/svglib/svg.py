@@ -331,7 +331,7 @@ class SVG:
         return self
 
     def canonicalize(self, normalize=False):
-        self.to_path().simplify_arcs()
+        # self.to_path().simplify_arcs()
 
         if normalize:
             self.normalize()
@@ -339,12 +339,12 @@ class SVG:
         self.split_paths()
         self.filter_consecutives()
         self.filter_empty()
-        self._apply_to_paths("reorder")
-        self.svg_path_groups = sorted(self.svg_path_groups, key=lambda x: x.start_pos.tolist()[::-1])
+        # self._apply_to_paths("reorder")
+        # self.svg_path_groups = sorted(self.svg_path_groups, key=lambda x: x.start_pos.tolist()[::-1])
         self._apply_to_paths("canonicalize")
-        self.recompute_origins()
+        # self.recompute_origins()
 
-        self.drop_z()
+        # self.drop_z()
 
         return self
 
