@@ -148,7 +148,8 @@ class SVGDataset(torch.utils.data.Dataset):
     def simplify(svg, normalize=True):
         svg.canonicalize(normalize=normalize)
         svg = svg.simplify_heuristic()
-        return svg.normalize()
+        return svg
+        # return svg.normalize()
 
     @staticmethod
     def preprocess(svg, augment=True, numericalize=True, mean=False):
