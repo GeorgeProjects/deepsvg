@@ -204,7 +204,8 @@ class SVG:
                     return Image.open(file_path)
 
     def draw_colored(self, *args, **kwargs):
-        self.copy().normalize().split_paths().set_color("random").draw(*args, **kwargs)
+        # self.copy().normalize().split_paths().set_color("random").draw(*args, **kwargs)
+        self.copy().split_paths().set_color("random").draw(*args, **kwargs)
 
     def __repr__(self):
         return "SVG[{}](\n{}\n)".format(self.viewbox,
@@ -333,8 +334,8 @@ class SVG:
     def canonicalize(self, normalize=False):
         # self.to_path().simplify_arcs()
 
-        if normalize:
-            self.normalize()
+        # if normalize:
+        #     self.normalize()
 
         self.split_paths()
         self.filter_consecutives()
